@@ -1,89 +1,11 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>لوحة التحكم - إضافة عقار</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f1f1f1;
-      padding: 20px;
-    }
-    h2 {
-      text-align: center;
-      color: #4e342e;
-    }
-    form {
-      max-width: 500px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    label {
-      display: block;
-      margin: 15px 0 5px;
-      font-weight: bold;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #6d4c41;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      margin-top: 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #5d4037;
-    }
-  </style>
-</head>
-<body>
-
-  <h2>لوحة التحكم - إضافة عقار</h2>
-  <form onsubmit="addProperty(event)">
-    <label>عنوان العقار:</label>
-    <input type="text" id="title" required>
-
-    <label>الوصف:</label>
-    <textarea id="description" required></textarea>
-
-    <label>السعر:</label>
-    <input type="text" id="price" required>
-
-    <label>رابط صورة العقار:</label>
-    <input type="url" id="image" required>
-
-    <button type="submit">إضافة</button>
-  </form>
-
-  <script>
-    function addProperty(event) {
-      event.preventDefault();
-      const title = document.getElementById("title").value;
-      const description = document.getElementById("description").value;
-      const price = document.getElementById("price").value;
-      const image = document.getElementById("image").value;
-
-      const newCard = { title, description, price, image };
-
-      let properties = JSON.parse(localStorage.getItem("properties")) || [];
-      properties.push(newCard);
-      localStorage.setItem("properties", JSON.stringify(properties));
-
-      alert("تمت إضافة العقار بنجاح!");
-      document.querySelector("form").reset();
-    }
-  </script>
-
-</body>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; URL=real_estate_site.html">
+    <title>إعادة التوجيه...</title>
+  </head>
+  <body>
+    <p>جاري التحويل إلى موقع العقارات...</p>
+  </body>
 </html>
