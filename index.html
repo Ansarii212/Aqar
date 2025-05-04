@@ -1,127 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Social Media Dashboard</title>
+  <title>لوحة التحكم - إضافة عقار</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      height: 100vh;
-      overflow: hidden;
-    }
-    .sidebar {
-      width: 250px;
-      background-color: #3e2723;
-      color: white;
-      display: flex;
-      flex-direction: column;
+      background-color: #f1f1f1;
       padding: 20px;
     }
-    .sidebar h2 {
-      margin-bottom: 30px;
-      font-size: 20px;
-      border-bottom: 1px solid #795548;
-      padding-bottom: 10px;
+    h2 {
+      text-align: center;
+      color: #4e342e;
     }
-    .sidebar a {
-      color: white;
-      text-decoration: none;
-      margin: 10px 0;
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    label {
       display: block;
+      margin: 15px 0 5px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
       padding: 10px;
       border-radius: 5px;
+      border: 1px solid #ccc;
     }
-    .sidebar a:hover {
-      background-color: #5d4037;
-    }
-
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .header {
+    button {
       background-color: #6d4c41;
       color: white;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .content {
-      flex: 1;
-      padding: 20px;
-      overflow-y: auto;
-    }
-
-    .card {
-      background: #fbe9e7;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-left: 5px solid #bf360c;
+      padding: 10px 15px;
+      border: none;
+      margin-top: 20px;
       border-radius: 5px;
+      cursor: pointer;
     }
-
-    .card h3 {
-      margin-top: 0;
+    button:hover {
+      background-color: #5d4037;
     }
   </style>
 </head>
 <body>
 
-  <div class="sidebar">
-    <h2>Dashboard</h2>
-    <a href="#">Posts</a>
-    <a href="#">Scheduler</a>
-    <a href="#">Messages</a>
-    <a href="#">Analytics</a>
-    <a href="#">Media Library</a>
-    <a href="#">Users & Permissions</a>
-  </div>
+  <h2>لوحة التحكم - إضافة عقار</h2>
+  <form onsubmit="addProperty(event)">
+    <label>عنوان العقار:</label>
+    <input type="text" id="title" required>
 
-  <div class="main">
-    <div class="header">
-      <div>Welcome, Admin</div>
-      <div>Notifications | Logout</div>
-    </div>
+    <label>الوصف:</label>
+    <textarea id="description" required></textarea>
 
-    <div class="content">
-      <div class="card">
-        <h3>Post Composer</h3>
-        <p>Write your post, upload media, choose platforms and schedule.</p>
-      </div>
+    <label>السعر:</label>
+    <input type="text" id="price" required>
 
-      <div class="card">
-        <h3>Calendar</h3>
-        <p>Monthly view of scheduled posts and campaigns.</p>
-      </div>
+    <label>رابط صورة العقار:</label>
+    <input type="url" id="image" required>
 
-      <div class="card">
-        <h3>Analytics Panel</h3>
-        <p>Track engagement, reach, and other performance stats.</p>
-      </div>
+    <button type="submit">إضافة</button>
+  </form>
 
-      <div class="card">
-        <h3>Messages Center</h3>
-        <p>Read and reply to user comments and messages in one place.</p>
-      </div>
+  <script>
+    function addProperty(event) {
+      event.preventDefault();
+      const title = document.getElementById("title").value;
+      const description = document.getElementById("description").value;
+      const price = document.getElementById("price").value;
+      const image = document.getElementById("image").value;
 
-      <div class="card">
-        <h3>Media Library</h3>
-        <p>Upload, organize, and reuse images and videos.</p>
-      </div>
+      const newCard = { title, description, price, image };
 
-      <div class="card">
-        <h3>Users & Permissions</h3>
-        <p>Invite your team, assign roles, and manage access.</p>
-      </div>
-    </div>
-  </div>
+      let properties = JSON.parse(localStorage.getItem("properties")) || [];
+      properties.push(newCard);
+      localStorage.setItem("properties", JSON.stringify(properties));
+
+      alert("تمت إضافة العقار بنجاح!");
+      document.querySelector("form").reset();
+    }
+  </script>
 
 </body>
 </html>
