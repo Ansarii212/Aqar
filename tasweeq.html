@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Social Media Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #3e2723;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+    .sidebar h2 {
+      margin-bottom: 30px;
+      font-size: 20px;
+      border-bottom: 1px solid #795548;
+      padding-bottom: 10px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .sidebar a:hover {
+      background-color: #5d4037;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background-color: #6d4c41;
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .card {
+      background: #fbe9e7;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 5px solid #bf360c;
+      border-radius: 5px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Dashboard</h2>
+    <a href="#">Posts</a>
+    <a href="#">Scheduler</a>
+    <a href="#">Messages</a>
+    <a href="#">Analytics</a>
+    <a href="#">Media Library</a>
+    <a href="#">Users & Permissions</a>
+  </div>
+
+  <div class="main">
+    <div class="header">
+      <div>Welcome, Admin</div>
+      <div>Notifications | Logout</div>
+    </div>
+
+    <div class="content">
+      <div class="card">
+        <h3>Post Composer</h3>
+        <p>Write your post, upload media, choose platforms and schedule.</p>
+      </div>
+
+      <div class="card">
+        <h3>Calendar</h3>
+        <p>Monthly view of scheduled posts and campaigns.</p>
+      </div>
+
+      <div class="card">
+        <h3>Analytics Panel</h3>
+        <p>Track engagement, reach, and other performance stats.</p>
+      </div>
+
+      <div class="card">
+        <h3>Messages Center</h3>
+        <p>Read and reply to user comments and messages in one place.</p>
+      </div>
+
+      <div class="card">
+        <h3>Media Library</h3>
+        <p>Upload, organize, and reuse images and videos.</p>
+      </div>
+
+      <div class="card">
+        <h3>Users & Permissions</h3>
+        <p>Invite your team, assign roles, and manage access.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
